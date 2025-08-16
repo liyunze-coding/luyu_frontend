@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Playlist } from "@/components/your-library/Playlists";
+import { Playlist } from "@/components/library/Playlists";
+import { RecentlyAdded } from "@/components/library/RecentlyAdded";
 
 export const Route = createFileRoute("/library")({
 	component: RouteComponent,
@@ -13,6 +14,7 @@ function RouteComponent() {
 				Manage your audio content and playlists
 			</p>
 			<Playlist />
+			<RecentlyAdded />
 		</div>
 	);
 }
