@@ -7,7 +7,6 @@ import {
 } from "@tabler/icons-react";
 import { motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
-import { cn } from "@/lib/utils";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/Navigation";
 
 export function Header({ children }: { children?: React.ReactNode }) {
@@ -43,23 +42,16 @@ export function Header({ children }: { children?: React.ReactNode }) {
 	];
 	const [open, setOpen] = useState(true);
 	return (
-		<div
-			className={cn(
-				"mx-auto flex w-full flex-1 flex-col border border-neutral-200 bg-gray-100 md:flex-row dark:border-neutral-700 dark:bg-neutral-800",
-				"min-h-screen",
-			)}
-		>
+		<div className="mx-auto flex w-full flex-1 flex-col overflow-hidden border border-neutral-200 bg-gray-100 md:flex-row dark:border-neutral-700 dark:bg-neutral-800">
 			<Sidebar open={open} setOpen={setOpen}>
 				<SidebarBody className="justify-between gap-10">
-					<div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
+					<div className="fixed flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
 						{open ? <Logo /> : <LogoIcon />}
 						<div className="mt-8 flex flex-col gap-2">
 							{links.map((link, idx) => (
 								<SidebarLink key={idx} link={link} />
 							))}
 						</div>
-					</div>
-					<div>
 						<SidebarLink
 							link={{
 								label: "Manu Arora",
