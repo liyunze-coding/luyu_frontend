@@ -35,7 +35,7 @@ export function Playlist() {
 									<div className="text-xs text-gray-400">
 										Updated 2 days ago
 									</div>
-									<button className="flex flex-row items-center justify-center gap-2 rounded-lg bg-purple-600 py-1 pr-6 pl-4">
+									<button className="flex cursor-pointer flex-row items-center justify-center gap-2 rounded-lg bg-purple-600 py-1 pr-6 pl-4 transition-colors duration-150 hover:bg-gray-50 hover:text-purple-600">
 										<IconPlayerPlayFilled size={12} /> Play
 									</button>
 								</div>
@@ -60,7 +60,7 @@ export function Playlist() {
 									<div className="text-xs text-gray-400">
 										Updated 1 week ago
 									</div>
-									<button className="flex flex-row items-center justify-center gap-2 rounded-lg bg-purple-600 py-1 pr-6 pl-4">
+									<button className="flex cursor-pointer flex-row items-center justify-center gap-2 rounded-lg bg-purple-600 py-1 pr-6 pl-4 transition-colors duration-150 hover:bg-gray-50 hover:text-purple-600">
 										<IconPlayerPlayFilled size={12} /> Play
 									</button>
 								</div>
@@ -108,7 +108,7 @@ export function Playlist() {
 									<div className="text-xs text-gray-400">
 										Updated 2 days ago
 									</div>
-									<button className="flex flex-row items-center justify-center gap-2 rounded-lg bg-purple-600 py-1 pr-6 pl-4">
+									<button className="flex cursor-pointer flex-row items-center justify-center gap-2 rounded-lg bg-purple-600 py-1 pr-6 pl-4 transition-colors duration-150 hover:bg-gray-50 hover:text-purple-600">
 										<IconPlayerPlayFilled size={12} /> Play
 									</button>
 								</div>
@@ -133,7 +133,7 @@ export function Playlist() {
 									<div className="text-xs text-gray-400">
 										Updated 1 week ago
 									</div>
-									<button className="flex flex-row items-center justify-center gap-2 rounded-lg bg-purple-600 py-1 pr-6 pl-4">
+									<button className="flex cursor-pointer flex-row items-center justify-center gap-2 rounded-lg bg-purple-600 py-1 pr-6 pl-4 transition-colors duration-150 hover:bg-gray-50 hover:text-purple-600">
 										<IconPlayerPlayFilled size={12} /> Play
 									</button>
 								</div>
@@ -158,7 +158,7 @@ export function Playlist() {
 									<div className="text-xs text-gray-400">
 										Updated 1 day ago
 									</div>
-									<button className="flex flex-row items-center justify-center gap-2 rounded-lg bg-purple-600 py-1 pr-6 pl-4">
+									<button className="flex cursor-pointer flex-row items-center justify-center gap-2 rounded-lg bg-purple-600 py-1 pr-6 pl-4 transition-colors duration-150 hover:bg-gray-50 hover:text-purple-600">
 										<IconPlayerPlayFilled size={12} /> Play
 									</button>
 								</div>
