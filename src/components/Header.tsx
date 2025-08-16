@@ -71,7 +71,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
 				</SidebarBody>
 			</Sidebar>
 			<div className="flex flex-1">
-				<div className="flex h-full w-full flex-1 flex-col gap-2 border border-neutral-200 bg-white text-white dark:border-neutral-700 dark:bg-neutral-900">
+				<div className="mb-[69px] flex h-[calc(100%-70px)] w-full flex-1 flex-col gap-2 border border-neutral-200 bg-white text-white dark:border-neutral-700 dark:bg-neutral-900">
 					{children}
 				</div>
 			</div>

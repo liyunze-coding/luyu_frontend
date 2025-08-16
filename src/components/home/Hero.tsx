@@ -1,7 +1,6 @@
-// import Podcast from './images/podcast.webp'
-
+import styles from "./styles/Hero.module.css";
+import { cn } from "@/lib/utils";
 import { GradientTitle } from "@/components/ui/GradientTitle";
-import "./styles/Hero.module.css";
 
 export function Hero() {
 	return (
@@ -33,7 +32,12 @@ export function Hero() {
 				</button>
 			</div>
 
-			<ul className="mt-10 flex list-disc flex-row items-center justify-center gap-5">
+			<ul
+				className={cn(
+					"mt-10 flex list-disc flex-row items-center justify-center gap-5",
+					styles.heroUl,
+				)}
+			>
 				<li>PDF & Document Support</li>
 				<li>Natural Voice Synthesis</li>
 				<li>Playlist Management</li>

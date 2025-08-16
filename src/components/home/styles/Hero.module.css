@@ -1,14 +1,14 @@
-ul {
+.heroUl {
 	list-style: none;
 }
 
-li {
+.heroUl li {
 	color: white;
 	position: relative;
 	padding-left: 1.2em;
 }
 
-li::before {
+.heroUl li::before {
 	content: "•";
 	color: limegreen;
 	position: absolute;
