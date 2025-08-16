@@ -1,0 +1,16 @@
+ul {
+	list-style: none;
+}
+
+li {
+	color: white;
+	position: relative;
+	padding-left: 1.2em;
+}
+
+li::before {
+	content: "•";
+	color: limegreen;
+	position: absolute;
+	left: 0;
+}
