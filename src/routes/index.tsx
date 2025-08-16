@@ -1,6 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Hero } from "@/components/home/Hero";
-import { CreateNewAudio } from "@/components/home/CreateNewAudio";
+import Footer from '@/components/Footer/Footer';
+import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute("/")({
 	component: App,
@@ -11,6 +10,7 @@ function App() {
 		<div className="w-full px-10 py-10">
 			<Hero />
 			<CreateNewAudio />
+      <Footer/>
 		</div>
 	);
 }
