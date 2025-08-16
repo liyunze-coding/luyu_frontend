@@ -12,7 +12,7 @@ export function CreateNewAudio() {
 	return (
 		<div className="py-10">
 			<h1 className="mb-10 text-3xl font-bold">Create New Audio</h1>
-			<div className="group hover:border-purplgroup-odd: flex cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed border-gray-700 bg-gray-900 py-10 transition-colors duration-150 hover:bg-[#201840]">
+			<div className="group flex cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed border-gray-700 bg-gray-900 py-10 transition-colors duration-150 hover:border-purple-500 hover:bg-[#201840]">
 				<div className="mb-5 w-fit rounded-full bg-purple-600 px-3 py-3">
 					<IconUpload
 						size={40}
