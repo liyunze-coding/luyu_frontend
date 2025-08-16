@@ -20,12 +20,14 @@ export function RecentlyGenerated() {
 								Source: research-paper.pdf
 							</div>
 							<div className="mt-1 flex flex-row items-center justify-start gap-2">
-								<div className="flex flex-row items-center justify-center gap-1 text-xs">
+								<div className="flex flex-row items-center justify-center gap-1 text-sm">
 									<IconClock size={13} />
 									12:15
 								</div>
-								<div className="text-xs">6 hours ago</div>
-								<div className="text-xs">processing</div>
+								<div className="text-sm">6 hours ago</div>
+								<div className="rounded-xl bg-purple-600 px-3 py-1 text-xs">
+									Processing
+								</div>
 							</div>
 						</div>
 					</div>
@@ -45,12 +47,14 @@ export function RecentlyGenerated() {
 								Source: research-paper.pdf
 							</div>
 							<div className="mt-1 flex flex-row items-center justify-start gap-2">
-								<div className="flex flex-row items-center justify-center gap-1 text-xs">
+								<div className="flex flex-row items-center justify-center gap-1 text-sm">
 									<IconClock size={13} />
 									12:15
 								</div>
-								<div className="text-xs">6 hours ago</div>
-								<div className="text-xs">processing</div>
+								<div className="text-sm">6 hours ago</div>
+								<div className="rounded-xl bg-purple-600 px-3 py-1 text-xs">
+									Processing
+								</div>
 							</div>
 						</div>
 					</div>

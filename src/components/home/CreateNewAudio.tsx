@@ -9,24 +9,27 @@ export function CreateNewAudio() {
 	return (
 		<div className="py-10">
 			<h1 className="mb-10 text-3xl font-bold">Create New Audio</h1>
-			<div className="border-dash flex flex-col items-center justify-center rounded-2xl border border-gray-700 bg-gray-900 py-10 transition-colors duration-150 hover:border-purple-600">
+			<div className="group hover:border-purplgroup-odd: flex cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed border-gray-700 bg-gray-900 py-10 transition-colors duration-150 hover:bg-[#201840]">
 				<div className="mb-5 w-fit rounded-full bg-purple-600 px-3 py-3">
-					<IconUpload size={40} />
+					<IconUpload
+						size={40}
+						className="transition-transform duration-150 group-hover:-translate-y-1"
+					/>
 				</div>
 				<h2 className="text-2xl font-medium">Upload Your Document</h2>
 				<p className="text-gray-300">
 					Drag and drop your files here, or click to browse
 				</p>
 				<div className="mt-10 grid grid-cols-3 items-center justify-center gap-10">
-					<button className="flex flex-col items-center justify-center gap-3 rounded-lg border border-solid border-gray-700 bg-black px-10 py-5 transition-colors duration-150 hover:border-purple-700 hover:bg-gray-800">
+					<button className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-lg border border-solid border-gray-700 bg-black px-10 py-5 transition-colors duration-150 hover:border-purple-700 hover:bg-gray-800">
 						<IconFileDescription size={20} />
 						<p className="text-sm font-bold">PDF & Documents</p>
 					</button>
-					<button className="flex flex-col items-center justify-center gap-3 rounded-lg border border-solid border-gray-700 bg-black px-10 py-5 transition-colors duration-150 hover:border-purple-700 hover:bg-gray-800">
+					<button className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-lg border border-solid border-gray-700 bg-black px-10 py-5 transition-colors duration-150 hover:border-purple-700 hover:bg-gray-800">
 						<IconPhoto size={20} />
 						<p className="text-sm font-bold">Images</p>
 					</button>
-					<button className="flex flex-col items-center justify-center gap-3 rounded-lg border border-solid border-gray-700 bg-black px-10 py-5 transition-colors duration-150 hover:border-purple-700 hover:bg-gray-800">
+					<button className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-lg border border-solid border-gray-700 bg-black px-10 py-5 transition-colors duration-150 hover:border-purple-700 hover:bg-gray-800">
 						<IconLink size={20} />
 						<p className="text-sm font-bold">Links & URLs</p>
 					</button>
