@@ -42,7 +42,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
 	];
 	const [open, setOpen] = useState(true);
 	return (
-		<div className="mx-auto flex w-full flex-1 flex-col overflow-hidden border border-neutral-200 bg-gray-100 md:flex-row dark:border-neutral-700 dark:bg-neutral-800">
+		<div className="mx-auto flex min-h-screen w-full flex-1 flex-col overflow-hidden border border-neutral-200 bg-gray-100 md:flex-row dark:border-neutral-700 dark:bg-neutral-800">
 			<Sidebar open={open} setOpen={setOpen}>
 				<SidebarBody className="justify-between gap-10">
 					<div className="fixed flex flex-1 flex-col overflow-x-hidden overflow-y-auto">

@@ -5,7 +5,7 @@ export function RecentlyGenerated() {
 		<div className="py-10">
 			<h1 className="mb-10 text-3xl font-bold">Recently Generated</h1>
 			<div className="flex flex-col items-center justify-center gap-5">
-				<div className="group w-full rounded-lg border border-solid border-gray-400 bg-gray-900 px-5 py-2">
+				<div className="group w-full rounded-lg border border-solid border-gray-600 bg-gray-900 px-5 py-2">
 					<div className="flex w-fit flex-row gap-3">
 						<div className="flex items-center justify-center">
 							<button className="rounded-lg bg-purple-700 px-3 py-3">
@@ -30,7 +30,7 @@ export function RecentlyGenerated() {
 						</div>
 					</div>
 				</div>
-				<div className="group w-full rounded-lg border border-solid border-gray-400 bg-gray-900 px-5 py-2">
+				<div className="group w-full rounded-lg border border-solid border-gray-600 bg-gray-900 px-5 py-2">
 					<div className="flex w-fit flex-row gap-3">
 						<div className="flex items-center justify-center">
 							<button className="rounded-lg bg-purple-700 px-3 py-3">
