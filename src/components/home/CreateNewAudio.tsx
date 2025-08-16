@@ -4,8 +4,11 @@ import {
 	IconPhoto,
 	IconUpload,
 } from "@tabler/icons-react";
+import { useNavigate } from "@tanstack/react-router";
 
 export function CreateNewAudio() {
+	const navigate = useNavigate();
+
 	return (
 		<div className="py-10">
 			<h1 className="mb-10 text-3xl font-bold">Create New Audio</h1>
@@ -21,7 +24,10 @@ export function CreateNewAudio() {
 					Drag and drop your files here, or click to browse
 				</p>
 				<div className="mt-10 grid grid-cols-3 items-center justify-center gap-10">
-					<button className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-lg border border-solid border-gray-700 bg-black px-10 py-5 transition-colors duration-150 hover:border-purple-700 hover:bg-gray-800">
+					<button
+						onClick={() => navigate({ to: "/upload" })}
+						className="flex flex-col items-center justify-center gap-3 rounded-lg border border-solid border-gray-700 bg-black px-10 py-5 transition-colors duration-150 hover:border-purple-700 hover:bg-gray-800"
+					>
 						<IconFileDescription size={20} />
 						<p className="text-sm font-bold">PDF & Documents</p>
 					</button>
