@@ -19,6 +19,17 @@
   }
 }
 
+/* In case a theme uses ::before to fake bullets */
+.footer li::before {
+  content: none !important;
+}
+
+.footer ul,
+.footer li {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
 /* ---- Layout ---- */
 .footer {
   background: var(--footer-bg);

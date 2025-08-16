@@ -1,5 +1,4 @@
-import React from "react";
-import { Plus, Upload, FolderPlus } from "lucide-react";
+import { FolderPlus, Plus, Upload } from "lucide-react";
 
 function EmptyState({
   onUpload,
