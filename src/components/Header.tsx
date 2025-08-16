@@ -54,7 +54,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
 						</div>
 						<SidebarLink
 							link={{
-								label: "Manu Arora",
+								label: "Username",
 								href: "#",
 								icon: (
 									<img
