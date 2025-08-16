@@ -10,7 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LibraryRouteImport } from './routes/library'
-import { Route as DocumentRouteImport } from './routes/document'
+import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as IndexRouteImport } from './routes/index'
 
 const LibraryRoute = LibraryRouteImport.update({
@@ -18,9 +18,9 @@ const LibraryRoute = LibraryRouteImport.update({
   path: '/library',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DocumentRoute = DocumentRouteImport.update({
-  id: '/document',
-  path: '/document',
+const DocumentsRoute = DocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,31 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/document': typeof DocumentRoute
+  '/documents': typeof DocumentsRoute
   '/library': typeof LibraryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/document': typeof DocumentRoute
+  '/documents': typeof DocumentsRoute
   '/library': typeof LibraryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/document': typeof DocumentRoute
+  '/documents': typeof DocumentsRoute
   '/library': typeof LibraryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/document' | '/library'
+  fullPaths: '/' | '/documents' | '/library'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/document' | '/library'
-  id: '__root__' | '/' | '/document' | '/library'
+  to: '/' | '/documents' | '/library'
+  id: '__root__' | '/' | '/documents' | '/library'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DocumentRoute: typeof DocumentRoute
+  DocumentsRoute: typeof DocumentsRoute
   LibraryRoute: typeof LibraryRoute
 }
 
@@ -68,11 +68,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LibraryRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/document': {
-      id: '/document'
-      path: '/document'
-      fullPath: '/document'
-      preLoaderRoute: typeof DocumentRouteImport
+    '/documents': {
+      id: '/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof DocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,7 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DocumentRoute: DocumentRoute,
+  DocumentsRoute: DocumentsRoute,
   LibraryRoute: LibraryRoute,
 }
 export const routeTree = rootRouteImport

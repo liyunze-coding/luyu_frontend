@@ -19,7 +19,7 @@ const DEMO_DOCS: Array<Doc> = [
 ];
 
 
-export const Route = createFileRoute('/document')({
+export const Route = createFileRoute('/documents')({
   component: DocumentsPage,
 })
 
