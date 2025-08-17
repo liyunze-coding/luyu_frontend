@@ -29,14 +29,6 @@ export function Hero() {
 					learning on the go, accessibility, or content repurposing.
 				</p>
 			</div>
-			<div className="mt-5 flex flex-row gap-5">
-				<button className="bg-primary hover:text-primary cursor-pointer rounded-lg px-5 py-2 text-white transition-colors duration-150 hover:bg-white">
-					Get Started
-				</button>
-				{/* <button className="bg-secondary hover:text-secondary cursor-pointer rounded-lg border border-solid border-gray-600 px-5 py-2 text-white transition-colors duration-150 hover:bg-gray-100">
-					Watch Demo
-				</button> */}
-			</div>
 
 			<ul
 				className={cn(
