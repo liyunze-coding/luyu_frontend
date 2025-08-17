@@ -12,12 +12,7 @@ export function Hero() {
 			)}
 		>
 			<div className="flex flex-col items-center justify-center">
-				<GradientTitle
-					className="mb-5 text-center text-7xl font-bold"
-					color="linear-gradient(90deg,rgba(0, 255, 179, 1) 0%, rgba(228, 145, 255, 1) 100%)"
-				>
-					Luyu
-				</GradientTitle>
+				<GradientTitle className="mb-5">Luyu</GradientTitle>
 				<h2 className="mx-auto max-w-[75%] text-center text-5xl font-bold text-balance">
 					Transform your documents into Engaging Podcasts
 				</h2>

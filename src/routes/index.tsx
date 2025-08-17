@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { RecentlyGenerated } from "@/components/home/RecentlyGenerated";
+// import { RecentlyGenerated } from "@/components/home/RecentlyGenerated";
 import { CreateNewAudio } from "@/components/home/CreateNewAudio";
 import { Hero } from "@/components/home/Hero";
 

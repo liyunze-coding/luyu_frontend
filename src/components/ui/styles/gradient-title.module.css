@@ -1,0 +1,30 @@
+.heroGradient {
+	color: transparent;
+	font-weight: bold;
+	font-size: 3.75rem;
+	background-size: 300% !important;
+
+	background-clip: text !important;
+	-webkit-background-clip: text !important;
+	overflow: hidden;
+
+	animation: gradient 15s ease infinite;
+
+	background: linear-gradient(
+		90deg,
+		rgba(0, 255, 179, 1) 0%,
+		rgba(228, 145, 255, 1) 100%
+	);
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
