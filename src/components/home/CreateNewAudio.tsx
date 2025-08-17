@@ -84,16 +84,14 @@ export function CreateNewAudio() {
 				throw new Error(`Download failed: ${response.statusText}`);
 			}
 
-			// Create blob and download
-			const blob = await response.blob();
-			const url = window.URL.createObjectURL(blob);
-			const link = document.createElement("a");
-			link.href = url;
-			link.download = filename;
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);
-			window.URL.revokeObjectURL(url);
+			const data = await response.json();
+
+			// Open the URL from the response
+			if (data.url) {
+				window.open(data.url, "_blank");
+			} else {
+				throw new Error("No download URL found in response");
+			}
 		} catch (error) {
 			console.error("Download failed:", error);
 			alert("Download failed. Please try again.");

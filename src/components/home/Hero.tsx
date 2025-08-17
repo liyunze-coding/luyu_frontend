@@ -11,16 +11,16 @@ export function Hero() {
 				styles.heroDiv,
 			)}
 		>
-			<div>
-				<h1 className="text-center text-5xl font-bold">
-					Transform Your Documents Into
-				</h1>
+			<div className="flex flex-col items-center justify-center">
 				<GradientTitle
-					className="text-center text-5xl font-bold"
+					className="mb-5 text-center text-7xl font-bold"
 					color="linear-gradient(90deg,rgba(0, 255, 179, 1) 0%, rgba(228, 145, 255, 1) 100%)"
 				>
-					Engaging Podcasts
+					Luyu
 				</GradientTitle>
+				<h2 className="mx-auto max-w-[75%] text-center text-5xl font-bold text-balance">
+					Transform your documents into Engaging Podcasts
+				</h2>
 			</div>
 			<div className="mt-5">
 				<p className="text-center text-lg text-balance">

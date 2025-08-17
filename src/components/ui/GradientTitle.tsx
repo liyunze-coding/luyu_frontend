@@ -12,7 +12,7 @@ export function GradientTitle({
 	return (
 		<div
 			className={cn(
-				"text-transparent animate-gradient py-1 lg:py-3 bg-[length:300%]",
+				"animate-gradient relative bg-[length:300%] py-1 text-transparent lg:py-3",
 				className,
 			)}
 			style={{

@@ -9,10 +9,12 @@ import { CurrentlyPlaying } from "@/components/ui/currently-playing";
 export const Route = createRootRoute({
 	component: () => (
 		<>
-			<Header>
-				<Outlet />
-				<Footer />
-			</Header>
+			<div className="flex flex-1">
+				<div className="flex h-[calc(100%-70px)] w-full flex-1 flex-col gap-2 border border-neutral-200 bg-white text-white dark:border-neutral-700 dark:bg-neutral-900">
+					<Outlet />
+					<Footer />
+				</div>
+			</div>
 
 			{/* <TanstackDevtools
         config={{
