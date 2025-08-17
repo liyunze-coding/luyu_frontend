@@ -9,7 +9,6 @@ import { CurrentlyPlaying } from "@/components/ui/currently-playing";
 export const Route = createRootRoute({
 	component: () => (
 		<>
-			<CurrentlyPlaying />
 			<Header>
 				<Outlet />
 				<Footer />

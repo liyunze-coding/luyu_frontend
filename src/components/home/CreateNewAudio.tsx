@@ -1,10 +1,24 @@
 import { useState } from "react";
+import { Download } from "lucide-react";
 import { FileUpload } from "@/components/ui/file-upload";
+
+type UploadResponse = {
+	document: {
+		id: string;
+		file_type: string;
+		filename: string;
+		file: string;
+		created_at: string;
+	};
+};
 
 export function CreateNewAudio() {
 	const [files, setFiles] = useState<Array<File>>([]);
 	const [isUploading, setIsUploading] = useState(false);
 	const [uploadStatus, setUploadStatus] = useState<string>("");
+	const [uploadedDocuments, setUploadedDocuments] = useState<
+		Array<UploadResponse["document"]>
+	>([]);
 
 	const handleFileUpload = async (uploadedFiles: Array<File>) => {
 		if (uploadedFiles.length === 0) return;
@@ -31,11 +45,13 @@ export function CreateNewAudio() {
 					);
 				}
 
-				return response.json();
+				const result: UploadResponse = await response.json();
+				return result.document;
 			});
 
 			const results = await Promise.all(uploadPromises);
-			console.log(results);
+			setUploadedDocuments(results);
+
 			setUploadStatus(
 				`Successfully uploaded ${uploadedFiles.length} file(s)`,
 			);
@@ -53,6 +69,34 @@ export function CreateNewAudio() {
 			setTimeout(() => setUploadStatus(""), 5000);
 		} finally {
 			setIsUploading(false);
+		}
+	};
+
+	const downloadDocument = async (documentId: string, filename: string) => {
+		try {
+			const apiUrl =
+				import.meta.env.VITE_API_URL || "http://localhost:8000";
+			const response = await fetch(
+				`${apiUrl}/document/get-document/${documentId}`,
+			);
+
+			if (!response.ok) {
+				throw new Error(`Download failed: ${response.statusText}`);
+			}
+
+			// Create blob and download
+			const blob = await response.blob();
+			const url = window.URL.createObjectURL(blob);
+			const link = document.createElement("a");
+			link.href = url;
+			link.download = filename;
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+			window.URL.revokeObjectURL(url);
+		} catch (error) {
+			console.error("Download failed:", error);
+			alert("Download failed. Please try again.");
 		}
 	};
 
@@ -87,6 +131,50 @@ export function CreateNewAudio() {
 			)}
 
 			<FileUpload onChange={handleFileUpload} />
+
+			{/* Uploaded Documents */}
+			{uploadedDocuments.length > 0 && (
+				<div className="mt-8">
+					<h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-gray-100">
+						Uploaded Documents
+					</h3>
+					<div className="space-y-3">
+						{uploadedDocuments.map((doc) => (
+							<div
+								key={doc.id}
+								className="flex items-center justify-between rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800"
+							>
+								<div className="flex-1">
+									<h4 className="font-medium text-gray-900 dark:text-gray-100">
+										{doc.filename}
+									</h4>
+									<div className="space-y-1 text-sm text-gray-500 dark:text-gray-400">
+										<p>Type: {doc.file_type}</p>
+										<p>
+											Created:{" "}
+											{new Date(
+												doc.created_at,
+											).toLocaleString()}
+										</p>
+										<p className="font-mono text-xs">
+											ID: {doc.id}
+										</p>
+									</div>
+								</div>
+								<button
+									onClick={() =>
+										downloadDocument(doc.id, doc.filename)
+									}
+									className="flex items-center gap-2 rounded-lg bg-violet-600 px-4 py-2 text-white transition-colors hover:bg-violet-700"
+								>
+									<Download size={16} />
+									Download
+								</button>
+							</div>
+						))}
+					</div>
+				</div>
+			)}
 		</div>
 	);
 }
