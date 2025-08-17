@@ -20,7 +20,7 @@ export function CreateNewAudio() {
 				const formData = new FormData();
 				formData.append("file", file);
 
-				const response = await fetch(`${apiUrl}/document/gen-script`, {
+				const response = await fetch(`${apiUrl}/document/upload`, {
 					method: "POST",
 					body: formData,
 				});
@@ -35,6 +35,7 @@ export function CreateNewAudio() {
 			});
 
 			const results = await Promise.all(uploadPromises);
+			console.log(results);
 			setUploadStatus(
 				`Successfully uploaded ${uploadedFiles.length} file(s)`,
 			);

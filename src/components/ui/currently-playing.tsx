@@ -30,7 +30,7 @@ export function CurrentlyPlaying() {
 	const progressPercentage = (currentTime / duration) * 100;
 
 	return (
-		<div className="fixed bottom-0 z-40 flex h-[90px] w-full flex-row items-center justify-between border-t border-gray-800 bg-gray-950 px-4 text-white">
+		<div className="fixed bottom-0 z-50 flex h-[90px] w-full flex-row items-center justify-between border-t border-gray-800 bg-gray-950 px-4 text-white">
 			{/* Left section - Track info */}
 			<div className="flex w-1/4 min-w-[180px] items-center gap-3">
 				<div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-purple-600 to-blue-600">
