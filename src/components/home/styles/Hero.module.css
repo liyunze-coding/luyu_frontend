@@ -14,3 +14,12 @@
 	position: absolute;
 	left: 0;
 }
+
+.heroDiv {
+	background-image: url("../images/podcast.webp");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-blend-mode: multiply;
+	background-color: rgba(75, 50, 100, 0.7);
+}

@@ -4,7 +4,13 @@ import { GradientTitle } from "@/components/ui/GradientTitle";
 
 export function Hero() {
 	return (
-		<div className="flex h-fit w-full flex-col items-center justify-center rounded-xl border border-solid border-gray-600 px-20 pt-32 pb-10">
+		<div
+			id="hero"
+			className={cn(
+				"flex h-fit w-full flex-col items-center justify-center rounded-xl border border-solid border-gray-600 px-20 pt-32 pb-10",
+				styles.heroDiv,
+			)}
+		>
 			<div>
 				<h1 className="text-center text-5xl font-bold">
 					Transform Your Documents Into
@@ -27,9 +33,9 @@ export function Hero() {
 				<button className="bg-primary hover:text-primary cursor-pointer rounded-lg px-5 py-2 text-white transition-colors duration-150 hover:bg-white">
 					Get Started
 				</button>
-				<button className="bg-secondary hover:text-secondary cursor-pointer rounded-lg border border-solid border-gray-600 px-5 py-2 text-white transition-colors duration-150 hover:bg-gray-100">
+				{/* <button className="bg-secondary hover:text-secondary cursor-pointer rounded-lg border border-solid border-gray-600 px-5 py-2 text-white transition-colors duration-150 hover:bg-gray-100">
 					Watch Demo
-				</button>
+				</button> */}
 			</div>
 
 			<ul
