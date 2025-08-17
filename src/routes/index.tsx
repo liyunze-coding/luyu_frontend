@@ -12,7 +12,6 @@ function App() {
 		<div className="w-full px-10 py-10">
 			<Hero />
 			<CreateNewAudio />
-			<RecentlyGenerated />
 		</div>
 	);
 }

@@ -1,5 +1,11 @@
 Welcome to your new TanStack app! 
 
+backend features:
+- get all documents
+- get single document (download)
+- upload document
+- generate script audio
+
 # Getting Started
 
 To run this application:

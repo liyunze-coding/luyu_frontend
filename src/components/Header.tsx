@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-	IconBooks,
-	IconFileDescription,
-	IconHome,
-	IconMusic,
-} from "@tabler/icons-react";
+import { IconBooks, IconFileDescription, IconHome } from "@tabler/icons-react";
 import { motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/Navigation";
@@ -23,13 +18,6 @@ export function Header({ children }: { children?: React.ReactNode }) {
 			href: "/library",
 			icon: (
 				<IconBooks className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-			),
-		},
-		{
-			label: "Playlists",
-			href: "/playlists",
-			icon: (
-				<IconMusic className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
 			),
 		},
 		{

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import type { Doc } from "@/components/documents/types";
 import DocumentsHeader from "@/components/documents/DocumentsHeader.tsx";
@@ -6,51 +6,6 @@ import DocumentsToolbar from "@/components/documents/DocumentsToolbar";
 import DocumentsGrid from "@/components/documents/DocumentsGrid";
 import DocumentsList from "@/components/documents/DocumentsList";
 import EmptyState from "@/components/documents/EmptyState";
-
-const DEMO_DOCS: Array<Doc> = [
-	{
-		id: "1",
-		name: "Cloud_Computing_Notes.pdf",
-		type: "pdf",
-		sizeKB: 932,
-		updatedAt: "2025-08-10T10:00:00Z",
-	},
-	{
-		id: "2",
-		name: "SIT233_Assignment.docx",
-		type: "doc",
-		sizeKB: 487,
-		updatedAt: "2025-08-12T03:10:00Z",
-	},
-	{
-		id: "3",
-		name: "wireframe-home.png",
-		type: "image",
-		sizeKB: 1204,
-		updatedAt: "2025-08-14T08:35:00Z",
-	},
-	{
-		id: "4",
-		name: "reading-list.pdf",
-		type: "pdf",
-		sizeKB: 211,
-		updatedAt: "2025-08-13T21:00:00Z",
-	},
-	{
-		id: "5",
-		name: "chapter-1-draft.docx",
-		type: "doc",
-		sizeKB: 92,
-		updatedAt: "2025-08-16T01:15:00Z",
-	},
-	{
-		id: "6",
-		name: "demo-voiceover.mp3",
-		type: "audio",
-		sizeKB: 5340,
-		updatedAt: "2025-08-09T11:00:00Z",
-	},
-];
 
 export const Route = createFileRoute("/documents")({
 	component: DocumentsPage,
@@ -61,9 +16,43 @@ function DocumentsPage() {
 	const [view, setView] = useState<"grid" | "list">("grid");
 	const [type, setType] = useState<"all" | Doc["type"]>("all");
 	const [sort, setSort] = useState<"recent" | "name" | "size">("recent");
+	const [documents, setDocuments] = useState<Array<Doc>>([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
+
+	// Fetch documents from API
+	useEffect(() => {
+		const apiURL = import.meta.env.VITE_API_URL;
+		console.log(apiURL);
+		const fetchDocuments = async () => {
+			try {
+				setIsLoading(true);
+				setError(null);
+				const response = await fetch(`${apiURL}/document/get-document`);
+
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+
+				const data = await response.json();
+				setDocuments(data);
+			} catch (err) {
+				console.error("Failed to fetch documents:", err);
+				setError(
+					err instanceof Error
+						? err.message
+						: "Failed to fetch documents",
+				);
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		fetchDocuments();
+	}, []);
 
 	const docs = useMemo(() => {
-		let list = DEMO_DOCS.slice();
+		let list = documents.slice();
 		if (type !== "all") list = list.filter((d) => d.type === type);
 		if (query.trim()) {
 			const q = query.toLowerCase();
@@ -83,10 +72,49 @@ function DocumentsPage() {
 				break;
 		}
 		return list;
-	}, [query, type, sort]);
+	}, [documents, query, type, sort]);
 
 	const handleUpload = () => console.log("upload clicked");
 	const handleNewFolder = () => console.log("new folder clicked");
+
+	if (isLoading) {
+		return (
+			<div className="w-full px-6 py-8">
+				<div className="flex min-h-[400px] items-center justify-center">
+					<div className="text-center">
+						<div className="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-b-2 border-violet-600"></div>
+						<p className="text-gray-600 dark:text-gray-400">
+							Loading documents...
+						</p>
+					</div>
+				</div>
+			</div>
+		);
+	}
+
+	if (error) {
+		return (
+			<div className="w-full px-6 py-8">
+				<div className="flex min-h-[400px] items-center justify-center">
+					<div className="text-center">
+						<div className="mb-4 text-red-500">⚠️</div>
+						<p className="mb-4 text-red-600 dark:text-red-400">
+							Failed to load documents
+						</p>
+						<p className="text-sm text-gray-600 dark:text-gray-400">
+							{error}
+						</p>
+						<button
+							onClick={() => window.location.reload()}
+							className="mt-4 rounded-lg bg-violet-600 px-4 py-2 text-white transition-colors hover:bg-violet-700"
+						>
+							Retry
+						</button>
+					</div>
+				</div>
+			</div>
+		);
+	}
 
 	return (
 		<div className="w-full px-6 py-8">
