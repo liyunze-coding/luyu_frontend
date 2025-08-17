@@ -52,7 +52,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
 								<SidebarLink key={idx} link={link} />
 							))}
 						</div>
-						<SidebarLink
+						{/* <SidebarLink
 							link={{
 								label: "Username",
 								href: "#",
@@ -66,7 +66,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
 									/>
 								),
 							}}
-						/>
+						/> */}
 					</div>
 				</SidebarBody>
 			</Sidebar>
