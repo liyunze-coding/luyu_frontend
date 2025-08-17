@@ -1,9 +1,25 @@
-import { IconFolder, IconPlayerPlay } from "@tabler/icons-react";
+import {
+	IconDots,
+	IconEdit,
+	IconFolder,
+	IconPlayerPlay,
+} from "@tabler/icons-react";
 
 export function Playlists() {
 	return (
 		<div className="grid grid-cols-3 gap-5">
-			<div className="rounded-xl bg-[#252035] px-5 py-5">
+			{/* component starts here */}
+			<div className="group relative rounded-xl bg-[#252035] px-5 py-5">
+				{/* top right, display on hover */}
+				<div className="absolute top-5 right-5 flex flex-row items-center justify-end gap-2 opacity-0 transition-opacity duration-75 group-hover:opacity-100">
+					<div>
+						<IconEdit className="cursor-pointer" />
+					</div>
+					<div>
+						<IconDots className="cursor-pointer" />
+					</div>
+				</div>
+
 				<IconFolder color="#9C62F5" size={32} />
 				<div className="mt-2 mb-1 text-xl font-medium">
 					Research Papers
